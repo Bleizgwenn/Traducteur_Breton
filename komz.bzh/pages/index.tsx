@@ -20,7 +20,7 @@ export default function Home() {
 
           <div className='flex flex-row gap-4 text-xs overflow-x-scroll container-snap pt-4'>
 
-            <button className={`flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==0?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(0)}}>
+            <button className={`flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 min-w-[110px] px-4 py-2.5 gap-2.5 items-center justify-start rounded-lg whitespace-nowrap ${page==0?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(0)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==0?'opacity-100':'opacity-0'}`}>
 
@@ -38,7 +38,7 @@ export default function Home() {
 
             </button>
 
-            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==1?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(1)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 min-w-[115px] px-4 py-2.5 gap-2.5 items-center justify-start rounded-lg whitespace-nowrap ${page==1?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(1)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==1?'opacity-100':'opacity-0'}`}>
 
@@ -57,7 +57,7 @@ export default function Home() {
 
             </button>
 
-            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==2?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(2)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 min-w-[120px] px-4 py-2.5 gap-2.5 items-center justify-start rounded-lg whitespace-nowrap ${page==2?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(2)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==2?'opacity-100':'opacity-0'}`}>
 
@@ -76,7 +76,7 @@ export default function Home() {
 
             </button>
 
-            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==3?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(3)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 min-w-[180px] px-4 py-2.5 gap-2.5 items-center justify-start rounded-lg whitespace-nowrap ${page==3?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(3)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==3?'opacity-100':'opacity-0'}`}>
 
