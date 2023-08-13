@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import Loader from '@/components/Loader'
 
 export default function Home() {
 
   const [lang, setLang] = useState(true)
   const [page, setPage] = useState(0)
+  const [input, setInput] = useState('')
 
   return (
     <div className='flex flex-col items-center bg-black'>
@@ -36,7 +38,7 @@ export default function Home() {
 
             </button>
 
-            <button className={`flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==1?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(1)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==1?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(1)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==1?'opacity-100':'opacity-0'}`}>
 
@@ -55,7 +57,7 @@ export default function Home() {
 
             </button>
 
-            <button className={`flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==2?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(2)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==2?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(2)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==2?'opacity-100':'opacity-0'}`}>
 
@@ -74,7 +76,7 @@ export default function Home() {
 
             </button>
 
-            <button className={`flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==3?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(3)}}>
+            <button disabled className={`opacity-50 flex flex-row border transition-all duration-300 ease-in-out relative bg-gray-900 w-fit px-4 py-2.5 gap-2.5 items-center justify-center rounded-lg whitespace-nowrap ${page==3?'border-gray-700':'border-gray-900'}`} onClick={()=>{setPage(3)}}>
 
               <div className={`absolute right-[-6px] top-[-6px] transition-all duration-300 ease-in-out ${page==3?'opacity-100':'opacity-0'}`}>
 
@@ -95,9 +97,9 @@ export default function Home() {
 
           </div>
 
-          <div className='flex flex-col rounded-lg bg-gray-900 w-full h-full border border-gray-700'>
+          <div className='flex flex-col rounded-lg bg-gray-900 w-full h-[50vh] border border-gray-700'>
 
-            <div className='flex flex-row items-stretch justify-between border-b border-gray-700 overflow-hidden'>
+            <div className='flex flex-row items-center justify-between overflow-hidden border-b border-gray-700'>
 
               <button className={`flex flex-col rounded-lg w-full items-center justify-start`} onClick={()=>{setLang(!lang)}}>
                 
@@ -133,13 +135,36 @@ export default function Home() {
 
             </div>
 
-            <div>
+            <div className='flex flex-col divide-y divide-gray-700 h-full'>
 
-              <div>
+              <div className='w-full h-1/2 flex flex-col relative'>
+                
+                <textarea id='input' className='flex flex-col w-full h-full bg-transparent focus:outline-none p-4 overflow-x-hidden' onChange={(e)=>{setInput(e.target.value)}}/>
+
+                <div className='flex flex-row justify-between w-full py-2.5 px-4 items-center'>
+
+                  {/* <div className='p-2.5'>
+
+                    <svg fill="white" className="h-4 w-4" viewBox="0 0 16 16">
+                      <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                      <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+
+                  </div> */}
+
+                  <p className='text-gray-500 text-xs'>{input.length} / 10000</p>
+
+                </div>
 
               </div>
 
-              <div>
+              <div className='w-full h-1/2 flex flex-col'>
+
+                {input.length>0?
+                  <Loader/>
+                  :
+                  null
+                }
 
               </div>
 
