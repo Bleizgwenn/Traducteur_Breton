@@ -4,10 +4,6 @@ import Loader from '@/components/Loader'
 
 export default function Home() {
 
-  const [lang, setLang] = useState(true)
-  const [page, setPage] = useState(0)
-  const [input, setInput] = useState('')
-
   //Valeurs d'inscription
 
   const [pseudo, setPseudo] = useState('')

@@ -7,16 +7,6 @@ export default function Home() {
 
   const router = useRouter()
 
-  const [lang, setLang] = useState(true)
-  const [page, setPage] = useState(0)
-  const [input, setInput] = useState('')
-
-  //Valeurs d'inscription
-
-  const [pseudo, setPseudo] = useState('')
-  const [passwd, setPasswd] = useState('')
-  const [passwdConfirm, setPasswdConfirm] = useState('')
-
   return (
     <div className='flex flex-col items-center bg-black'>
       <div className='flex flex-col max-w-[1148px] w-full px-4 gap-4'>
