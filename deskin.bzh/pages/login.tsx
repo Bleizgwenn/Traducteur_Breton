@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import Loader from '@/components/Loader'
+import { useRouter } from 'next/router'
 
 //Fonctions de contrôle
 
@@ -15,6 +16,7 @@ export default function Home() {
   const [loader1, setLoader1] = useState(false)
   const [loader2, setLoader2] = useState(false)
   const [error, setError] = useState('')
+  const router = useRouter()
 
   //Valeurs d'inscription et de connexion
   
@@ -41,7 +43,8 @@ export default function Home() {
                                     if(controlEmail(email)===true){
                                         if(controlPseudo(pseudo)===true){
                                             setError('')
-                                            alert('Inscription en cours')
+                                            // alert('Inscription en cours')
+                                            router.push('../exercices')
                                         }else{
                                             setLoader1(false)
                                             setError('Votre pseudonyme ne peut comporter que des lettres')
@@ -92,10 +95,11 @@ export default function Home() {
             if(controlPassword(passwd)===true){
                 if(controlPseudo(pseudo)===true){
                     setError('')
-                    alert('Connexion en cours')
+                    // alert('Connexion en cours')
+                    router.push('../exercices')
                 }else{
                     setLoader2(false)
-                    setError('Votre pseudonyme ne peut comporter que des lettres') 
+                    setError('Votre pseudonyme ne peut comporter que des lettres')
                 }
             }else{
                 setLoader2(false)
