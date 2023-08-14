@@ -17,9 +17,9 @@ export default function Home() {
 
         <section className='flex flex-col rounded-lg bg-gray-900 w-full p-4 gap-4'>
           
-          <p className='police2 text-xl'>Vous n&apos;êtes pas connecté</p>
+          <p className='police2 text-xl'>Exercices</p>
 
-          <button className='flex flex-row bg-black/50 rounded-lg px-4 py-2.5 police2 text-sm items-baseline justify-center' onClick={()=>{router.push('/login?q=inscription')}}>Connexion</button>
+          {/* <button className='flex flex-row bg-black/50 rounded-lg px-4 py-2.5 police2 text-sm items-baseline justify-center' onClick={()=>{router.push('/login?q=inscription')}}>Connexion</button> */}
 
         </section>
 
