@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @font-face {font-family: whitestorm; src:url("../public/font/white_storm.otf");}
+@font-face {font-family: Basteleur; src:url("../public/font/Basteleur-Moonlight.ttf");}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -13,6 +14,9 @@
 
 .police1{
   font-family: "whitestorm";
+}
+.police2{
+  font-family: "Basteleur";
 }
 
 @media (prefers-color-scheme: dark) {
