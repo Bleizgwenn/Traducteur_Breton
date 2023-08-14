@@ -30,12 +30,12 @@ export default function Home() {
   //Tentative d'inscription
 
   useEffect(()=>{
-    if(passwd.length>7){
-        if(passwdConfirm.length>7){
+    if(passwd.length>=0){
+        if(passwdConfirm.length>=0){
             if(passwdConfirm===passwd){
-                if(name.length>0){
-                    if(email.length>0){
-                        if(pseudo.length>0){
+                if(name.length>=0){
+                    if(email.length>=0){
+                        if(pseudo.length>=0){
                             if(controlName(name)===true){
                                 if(controlPassword(passwdConfirm)===true){
                                     if(controlEmail(email)===true){
@@ -87,8 +87,8 @@ export default function Home() {
   //Tentative de connexion
 
   useEffect(()=>{
-    if(passwd.length>7){
-        if(pseudo.length>0){
+    if(passwd.length>=0){
+        if(pseudo.length>=0){
             if(controlPassword(passwd)===true){
                 if(controlPseudo(pseudo)===true){
                     setError('')
