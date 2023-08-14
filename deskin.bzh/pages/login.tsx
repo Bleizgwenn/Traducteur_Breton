@@ -14,6 +14,7 @@ export default function Home() {
   const [co, setCo] = useState(false)
   const [loader1, setLoader1] = useState(false)
   const [loader2, setLoader2] = useState(false)
+  const [error, setError] = useState('')
 
   //Valeurs d'inscription et de connexion
   
@@ -25,22 +26,93 @@ export default function Home() {
   const [passwdConfirm, setPasswdConfirm] = useState('')
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
-  const [surname, setSurname] = useState('')
 
   //Tentative d'inscription
 
   useEffect(()=>{
-
+    if(passwd.length>7){
+        if(passwdConfirm.length>7){
+            if(passwdConfirm===passwd){
+                if(name.length>0){
+                    if(email.length>0){
+                        if(pseudo.length>0){
+                            if(controlName(name)===true){
+                                if(controlPassword(passwdConfirm)===true){
+                                    if(controlEmail(email)===true){
+                                        if(controlPseudo(pseudo)===true){
+                                            setError('')
+                                            alert('Inscription en cours')
+                                        }else{
+                                            setLoader1(false)
+                                            setError('Votre pseudonyme ne peut comporter que des lettres')
+                                        }
+                                    }else{
+                                        setLoader1(false)
+                                        setError('Votre adresse éléctronique est invalide')
+                                    }
+                                }else{
+                                    setLoader1(false)
+                                    setError('Le mot de pase doit comporter au moins 8 caractères')
+                                }
+                            }else{
+                                setLoader1(false)
+                                setError('Votre prénom ne peut comporter que des lettres')
+                            }
+                        }else{
+                            setLoader1(false)
+                            setError('Veuillez choisir un pseudonyme')
+                        }
+                    }else{
+                        setLoader1(false)
+                        setError('Veuillez compléter votre e-mail')
+                    }
+                }else{
+                    setLoader1(false)
+                    setError('Veuillez compléter votre prénom')
+                }
+            }else{
+                setLoader1(false)
+                setError('Les mots de passe ne correspondent pas')
+            }
+        }else{
+            setLoader1(false)
+            setError('Veuillez confirmer votre mot de passe')
+        }
+    }else{
+        setLoader1(false)
+        setError('Veuillez choisir un mot de passe')  
+    }
   },[loader1])
 
   //Tentative de connexion
 
   useEffect(()=>{
-
+    if(passwd.length>7){
+        if(pseudo.length>0){
+            if(controlPassword(passwd)===true){
+                if(controlPseudo(pseudo)===true){
+                    setError('')
+                    alert('Connexion en cours')
+                }else{
+                    setLoader2(false)
+                    setError('Votre pseudonyme ne peut comporter que des lettres') 
+                }
+            }else{
+                setLoader2(false)
+                setError('Le mot de pase doit comporter au moins 8 caractères') 
+            }
+        }else{
+            setLoader2(false)
+            setError('Veuillez choisir un pseudonyme') 
+        }
+    }else{
+        setLoader2(false)
+        setError('Veuillez choisir un mot de passe') 
+    }
   },[loader2])
 
   return (
-    <div className='flex flex-col items-center bg-black'>
+    <div className='flex flex-col items-center bg-black w-[100vw]'>
       <div className='flex flex-col max-w-[1148px] w-full px-4 gap-4'>
 
         <div className='flex flex-row py-2.5'>
@@ -68,20 +140,10 @@ export default function Home() {
                         </button>
     
                     </div>
-                
-                    <div className='flex flex-row'>
                     
-                        <div className='flex flex-row items-center bg-black/50 rounded-l-lg px-4'>
+                    <div className='flex flex-row items-center bg-black/50 rounded-lg px-4'>
 
-                            <input type='text' value={name} onChange={(e)=>{setName(e.target.value.replaceAll(' ',''))}} className='flex flex-row bg-transparent focus:outline-none py-2.5 w-full' placeholder='Nom'/>
-
-                        </div>
-                        
-                        <div className='flex flex-row items-center bg-black/50 rounded-r-lg px-4'>
-
-                            <input type='text' value={surname} onChange={(e)=>{setSurname(e.target.value.replaceAll(' ',''))}}  className='flex flex-row bg-transparent focus:outline-none py-2.5 w-full' placeholder='Prénom'/>
-
-                        </div>
+                        <input type='text' value={name} onChange={(e)=>{setName(e.target.value.replaceAll(' ',''))}} className='flex flex-row bg-transparent focus:outline-none py-2.5 w-full' placeholder='Prénom'/>
 
                     </div>
                     
@@ -112,6 +174,8 @@ export default function Home() {
                     </div>
 
                     <button disabled={loader1} className='flex flex-row bg-black/50 rounded-lg px-4 py-2.5 text-xs items-baseline justify-center' onClick={()=>setLoader1(true)}>Valider</button>
+                    
+                    {error!==''?<p className='text-xs px-2.5 text-red-900'>{error}</p>:null}
 
                 </section>
 
@@ -148,6 +212,8 @@ export default function Home() {
                     </div>
 
                     <button disabled={loader2} className='flex flex-row bg-black/50 rounded-lg px-4 py-2.5 text-xs items-baseline justify-center' onClick={()=>setLoader2(true)}>Valider</button>
+                    
+                    {error!==''?<p className='text-xs px-2.5 text-red-900'>{error}</p>:null}
 
                 </section>
 

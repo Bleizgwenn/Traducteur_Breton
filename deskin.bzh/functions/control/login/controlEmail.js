@@ -1,3 +1,4 @@
 export default function controlEmail(email) {
-    return email
+    const validateEmailRegex = /^\S+@\S+\.\S+$/
+    return validateEmailRegex.test(email)
 }
