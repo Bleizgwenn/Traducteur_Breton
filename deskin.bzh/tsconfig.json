@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/name/w/names.js", "pages/api/name/m/hello.tjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/name/w/names.js", "pages/api/name/m/hello.tjs", "pages/exercices/lecons/section-un/lecon-un.js"],
   "exclude": ["node_modules"]
 }
