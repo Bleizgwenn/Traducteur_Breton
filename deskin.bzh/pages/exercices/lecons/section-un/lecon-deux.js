@@ -1,23 +1,20 @@
-import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import Loader from '@/components/Loader'
 import { useRouter } from 'next/router'
+import Ordonner from '@/components/exercice/Ordonner'
 
 export default function Lesson() {
 
     const router = useRouter()
-    const numberSections = 4
+    const numberSections = 3
     const [segment, setSegment] = useState(0)
-    const [answer, setAnswer] = useState({answer:['caca','pipi']})
+    const [answer, setAnswer] = useState({answer:'',error:false})
+    const [fautes, setFautes] = useState(0)
+    const [exercices, setExercices] = useState(1)
 
     //Fermeture et ouverture des modales
     const [modalLeave, setModalLeave] = useState(false)
     const [modalAnswer, setModalAnswer] = useState(false)
-
-    function verifExercice(segment:number,answer:object){
-        setModalAnswer(true)
-    }
-
 
   return (
     <div className='flex flex-col bg-black h-[100vh]'>
@@ -50,58 +47,65 @@ export default function Lesson() {
 
         <div className='flex flex-col w-[100vw] h-[calc(100vh-60px)] overflow-x-hidden'>
             <div style={{"width" : `${numberSections}00vw`}} className={`flex flex-row h-full transition-all duration-500 ease-in-out ${segment==0?'translate-x-0':segment==1?'-translate-x-[100vw]':segment==2?'-translate-x-[200vw]':segment==3?'-translate-x-[300vw]':'translate-x-0'}`}>
+
                 <div className='flex flex-col h-full w-[100vw] items-center p-4 gap-4'>
 
-                    <div className='flex flex-col w-full h-full bg-gray-500 rounded-lg p-4 items-center'>
+                    <div className='flex flex-col w-full h-full bg-transparent rounded-lg items-center gap-8 text-base'>
 
-                        Leçon : dire bonjour en breton
+                        <h1 className='police2 text-xl'>Se quitter en Breton</h1>
+                        
+                        <div className='flex flex-col gap-4'>
+
+                            <p>Il arrive toujours un moment ou l'on doit se dire au revoir, et les Bretons ne font pas fi de cette règle de politesse.</p>
+
+                            <p>Rien de plus simple que de dire <span className='police2 text-sm italic'>" au revoir "</span> en Breton : vous n'avez qu'à prononcer <span className='police2 text-sm italic'>" Kenavo "</span> !</p>
+
+                            <p>Et bien sûr, pour les plus jeunes, le familier <span className='police2 text-sm italic'>" Ken tuch' " (à plus)</span> ou encore <span className='police2 text-sm italic'>" Kenavo emberr " (à bientôt)</span>.</p>
+
+                        </div>
                     
                     </div>                    
 
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{verifExercice(segment,answer)}}>Valider</button>
+                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1)}}>J'ai compris !</button>
+
+                </div>
+
+                <div className='flex flex-col h-full w-[100vw] items-center p-4 gap-4'>
+                    
+                    <Ordonner fautes={fautes} setFautes={setFautes} setAnswer={setAnswer} setModalAnswer={setModalAnswer} motsOrdre={['Kenavo','!']} motsTraduction={['Au revoir','!']} />
 
                 </div>
                 <div className='flex flex-col h-full w-[100vw] items-center p-4 gap-4'>
 
-                    <div className='flex flex-col w-full h-full bg-gray-500 rounded-lg p-4 items-center'>
+                    <div className='flex flex-col w-full h-full bg-transparent rounded-lg p-4 items-center'>
 
-                        Exrecice : le bonjour en breton
+                        {fautes/exercices*100>25?<p className='flex flex-row self-center police2 text-red-900'>Vous avez fait trop d'erreurs.</p>:<p className='flex flex-row self-center police2 text-green-900'>Félicitations !</p>}
                     
-                    </div>                    
+                    </div>
 
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{verifExercice(segment,answer)}}>Valider</button>
-
-                </div>
-                <div className='flex flex-col h-full w-[100vw] items-center p-4 gap-4'>
-
-                    <div className='flex flex-col w-full h-full bg-gray-500 rounded-lg p-4 items-center'>
-
-                        Contenu de la leçon n°2
-                    
-                    </div>                    
-
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{verifExercice(segment,answer)}}>Valider</button>
-
-                </div>
-                <div className='flex flex-col h-full w-[100vw] items-center p-4 gap-4'>
-
-                    <div className='flex flex-col w-full h-full bg-gray-500 rounded-lg p-4 items-center'>
-
-                        <p>Vous avez complété la leçon !</p>
-                    
-                    </div>                    
-
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{router.push('/exercices/lecons/section-un/lecon-deux')}}>Leçon suivante</button>
+                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg police2 text-xs' onClick={()=>{fautes/exercices*100>25?router.push('/exercices'):router.push('/exercices')}}>{fautes/exercices*100>25?'Réessayer':'Menu'}</button>
 
                 </div>
             </div>
         </div>
 
-        <nav className={`flex flex-col w-full fixed bottom-0 bg-gray-900 rounded-t-lg p-4 items-center justify-center gap-4 transition-all duration-300 ease-in-out ${modalAnswer?'translate-y-0':'translate-y-full'}`}>
+        <nav className={`flex flex-col w-full fixed bottom-0 bg-gray-900 rounded-t-lg p-4 justify-center gap-4 transition-all duration-300 ease-in-out ${modalAnswer?'translate-y-0':'translate-y-full'}`}>
 
-            Error : Voila l'erreur effectuée
+            {answer.error===true?<h3 className='text-base police2'>Mince ! Tu as fait une erreur...</h3>:<h3 className='text-base police2'>Bien joué !</h3>}
 
-            <button className='flex flex-row px-4 py-2.5 bg-green-900 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1),setModalAnswer(false)}}>Continuer</button>
+            {answer.error===true?
+                <div className='flex flex-row w-full h-full police2 gap-1 text-xs'>
+                    {answer.answer.initial.map((mot,index)=>{
+                        return(
+                            <span className={`${answer.answer.initial.indexOf(mot)!==answer.answer.final.indexOf(mot)?'text-red-900 underline':' text-white'}`}>{mot}</span>
+                        )
+                    })}
+                </div>
+            :
+                <p>C'est un sans-faute.</p>
+            }
+
+            <button className={`flex flex-row px-4 py-2.5 w-full items-center justify-center rounded-lg ${answer.error===true?'bg-black':'bg-green-900'}`} onClick={()=>{setSegment(segment+1),setModalAnswer(false)}}>Continuer</button>
 
         </nav>
 
