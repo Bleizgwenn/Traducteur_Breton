@@ -79,7 +79,7 @@ export default function Lesson() {
 
                     <div className='flex flex-col w-full h-full bg-transparent rounded-lg p-4 items-center'>
 
-                        {fautes/exercices*100>25?<p className='flex flex-row self-center police2 text-red-900'>Vous avez fait trop d'erreurs.</p>:<p className='flex flex-row self-center police2 text-green-900'>Félicitations !</p>}
+                        {fautes/exercices*100>25?<p className='flex flex-row self-center police2 text-red-900'>Vous avez fait trop d&apos;erreurs.</p>:<p className='flex flex-row self-center police2 text-green-900'>Félicitations !</p>}
                     
                     </div>
 
@@ -97,12 +97,12 @@ export default function Lesson() {
                 <div className='flex flex-row w-full h-full police2 gap-1 text-xs'>
                     {answer.answer.initial.map((mot,index)=>{
                         return(
-                            <span className={`${answer.answer.initial.indexOf(mot)!==answer.answer.final.indexOf(mot)?'text-red-900 underline':' text-white'}`}>{mot}</span>
+                            <span key={index} className={`${answer.answer.initial.indexOf(mot)!==answer.answer.final.indexOf(mot)?'text-red-900 underline':' text-white'}`}>{mot}</span>
                         )
                     })}
                 </div>
             :
-                <p>C'est un sans-faute.</p>
+                <p>C&apos;est un sans-faute.</p>
             }
 
             <button className={`flex flex-row px-4 py-2.5 w-full items-center justify-center rounded-lg ${answer.error===true?'bg-black':'bg-green-900'}`} onClick={()=>{setSegment(segment+1),setModalAnswer(false)}}>Continuer</button>

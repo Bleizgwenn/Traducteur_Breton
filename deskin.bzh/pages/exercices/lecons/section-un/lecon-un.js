@@ -56,13 +56,13 @@ export default function Lesson() {
                         
                         <div className='flex flex-col gap-4'>
 
-                            <p>Voila un fait intéressant : les Bretons ne disent pas <span className='police2 text-sm italic'>"Bonjour"</span> ! Mais rassurez-vous, ils sont loins d'être malpolis.</p>
+                            <p>Voila un fait intéressant : les Bretons ne disent pas <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> ! Mais rassurez-vous, ils sont loins d'être malpolis.</p>
 
-                            <p>Il existe bien une traduction de <span className='police2 text-sm italic'>"Bonjour"</span> en Breton, il s'agit de <span className='police2 text-sm italic'>"Demat"</span>, qui est composé de <span className='police2 text-sm italic'>"deizh" (jour)</span> et <span className='police2 text-sm italic'>"mat" (bon)</span>.</p>
+                            <p>Il existe bien une traduction de <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> en Breton, il s&apos;agit de <span className='police2 text-sm italic'>&quot; Demat &quot;</span>, qui est composé de <span className='police2 text-sm italic'>&quot; deizh &quot; (jour)</span> et <span className='police2 text-sm italic'>&quot; mat &quot; (bon)</span>.</p>
 
-                            <p>C'est la manière la plus simple et la plus utilisée pour saluer, mais il existe une multitude de façons de dire <span className='police2 text-sm italic'>"Bonjour"</span> en Breton.</p>
+                            <p>C&apos;est la manière la plus simple et la plus utilisée pour saluer, mais il existe une multitude de façons de dire <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> en Breton.</p>
 
-                            <p>Les bretonnants préfèrent utiliser d'autres expressions comme <span className='police2 text-sm italic'>"Demat dit"</span> ou <span className='police2 text-sm italic'>"Demat deoc'h"</span>, que l'on pourrait traduire par <span className='police2 text-sm italic'>"Comment ça va ?"</span>, qui sont moins impersonelles et plus chaleureuses.</p>
+                            <p>Les bretonnants préfèrent utiliser d'autres expressions comme <span className='police2 text-sm italic'>&quot; Demat dit &quot;</span> ou <span className='police2 text-sm italic'>&quot; Demat deoc&apos;h &quot;</span>, que l'on pourrait traduire par <span className='police2 text-sm italic'>&quot; Comment ça va ? &quot;</span>, qui sont moins impersonelles et plus chaleureuses.</p>
 
                         </div>
                     
