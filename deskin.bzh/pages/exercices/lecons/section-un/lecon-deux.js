@@ -56,11 +56,11 @@ export default function Lesson() {
                         
                         <div className='flex flex-col gap-4'>
 
-                            <p>Il arrive toujours un moment ou l'on doit se dire au revoir, et les Bretons ne font pas fi de cette règle de politesse.</p>
+                            <p>Il arrive toujours un moment ou l&apos;on doit se dire au revoir, et les Bretons ne font pas fi de cette règle de politesse.</p>
 
-                            <p>Rien de plus simple que de dire <span className='police2 text-sm italic'>" au revoir "</span> en Breton : vous n'avez qu'à prononcer <span className='police2 text-sm italic'>" Kenavo "</span> !</p>
+                            <p>Rien de plus simple que de dire <span className='police2 text-sm italic'>&quot; au revoir &quot;</span> en Breton : vous n&apos;avez qu'à prononcer <span className='police2 text-sm italic'>&quot; Kenavo &quot;</span> !</p>
 
-                            <p>Et bien sûr, pour les plus jeunes, le familier <span className='police2 text-sm italic'>" Ken tuch' " (à plus)</span> ou encore <span className='police2 text-sm italic'>" Kenavo emberr " (à bientôt)</span>.</p>
+                            <p>Et bien sûr, pour les plus jeunes, le familier <span className='police2 text-sm italic'>&quot; Ken tuch&apos; &quot; (à plus)</span> ou encore <span className='police2 text-sm italic'>&quot; Kenavo emberr &quot; (à bientôt)</span>.</p>
 
                         </div>
                     
