@@ -58,7 +58,7 @@ export default function Lesson() {
 
                             <p>Il arrive toujours un moment ou l&apos;on doit se dire au revoir, et les Bretons ne font pas fi de cette règle de politesse.</p>
 
-                            <p>Rien de plus simple que de dire <span className='police2 text-sm italic'>&quot; au revoir &quot;</span> en Breton : vous n&apos;avez qu'à prononcer <span className='police2 text-sm italic'>&quot; Kenavo &quot;</span> !</p>
+                            <p>Rien de plus simple que de dire <span className='police2 text-sm italic'>&quot; au revoir &quot;</span> en Breton : vous n&apos;avez qu&apos;à prononcer <span className='police2 text-sm italic'>&quot; Kenavo &quot;</span> !</p>
 
                             <p>Et bien sûr, pour les plus jeunes, le familier <span className='police2 text-sm italic'>&quot; Ken tuch&apos; &quot; (à plus)</span> ou encore <span className='police2 text-sm italic'>&quot; Kenavo emberr &quot; (à bientôt)</span>.</p>
 
@@ -66,7 +66,7 @@ export default function Lesson() {
                     
                     </div>                    
 
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1)}}>J'ai compris !</button>
+                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1)}}>J&apos;ai compris !</button>
 
                 </div>
 

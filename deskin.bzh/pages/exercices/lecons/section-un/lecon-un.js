@@ -56,19 +56,19 @@ export default function Lesson() {
                         
                         <div className='flex flex-col gap-4'>
 
-                            <p>Voila un fait intéressant : les Bretons ne disent pas <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> ! Mais rassurez-vous, ils sont loins d'être malpolis.</p>
+                            <p>Voila un fait intéressant : les Bretons ne disent pas <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> ! Mais rassurez-vous, ils sont loins d&apos;être malpolis.</p>
 
                             <p>Il existe bien une traduction de <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> en Breton, il s&apos;agit de <span className='police2 text-sm italic'>&quot; Demat &quot;</span>, qui est composé de <span className='police2 text-sm italic'>&quot; deizh &quot; (jour)</span> et <span className='police2 text-sm italic'>&quot; mat &quot; (bon)</span>.</p>
 
                             <p>C&apos;est la manière la plus simple et la plus utilisée pour saluer, mais il existe une multitude de façons de dire <span className='police2 text-sm italic'>&quot; Bonjour &quot;</span> en Breton.</p>
 
-                            <p>Les bretonnants préfèrent utiliser d'autres expressions comme <span className='police2 text-sm italic'>&quot; Demat dit &quot;</span> ou <span className='police2 text-sm italic'>&quot; Demat deoc&apos;h &quot;</span>, que l'on pourrait traduire par <span className='police2 text-sm italic'>&quot; Comment ça va ? &quot;</span>, qui sont moins impersonelles et plus chaleureuses.</p>
+                            <p>Les bretonnants préfèrent utiliser d&apos;autres expressions comme <span className='police2 text-sm italic'>&quot; Demat dit &quot;</span> ou <span className='police2 text-sm italic'>&quot; Demat deoc&apos;h &quot;</span>, que l&apos;on pourrait traduire par <span className='police2 text-sm italic'>&quot; Comment ça va ? &quot;</span>, qui sont moins impersonelles et plus chaleureuses.</p>
 
                         </div>
                     
                     </div>                    
 
-                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1)}}>J'ai compris !</button>
+                    <button className='flex flex-row px-4 py-2.5 bg-gray-500 w-full items-center justify-center rounded-lg' onClick={()=>{setSegment(segment+1)}}>J&apos;ai compris !</button>
 
                 </div>
 
@@ -81,7 +81,7 @@ export default function Lesson() {
 
                     <div className='flex flex-col w-full h-full bg-transparent rounded-lg p-4 items-center'>
 
-                        {fautes/exercices*100>25?<p className='flex flex-row self-center police2 text-red-900'>Vous avez fait trop d'erreurs.</p>:<p className='flex flex-row self-center police2 text-green-900'>Félicitations !</p>}
+                        {fautes/exercices*100>25?<p className='flex flex-row self-center police2 text-red-900'>Vous avez fait trop d&apos;erreurs.</p>:<p className='flex flex-row self-center police2 text-green-900'>Félicitations !</p>}
                     
                     </div>
 
@@ -99,12 +99,12 @@ export default function Lesson() {
                 <div className='flex flex-row w-full h-full police2 gap-1 text-xs'>
                     {answer.answer.initial.map((mot,index)=>{
                         return(
-                            <span className={`${answer.answer.initial.indexOf(mot)!==answer.answer.final.indexOf(mot)?'text-red-900 underline':' text-white'}`}>{mot}</span>
+                            <span key={index} className={`${answer.answer.initial.indexOf(mot)!==answer.answer.final.indexOf(mot)?'text-red-900 underline':' text-white'}`}>{mot}</span>
                         )
                     })}
                 </div>
             :
-                <p>C'est un sans-faute.</p>
+                <p>C&apos;est un sans-faute.</p>
             }
 
             <button className={`flex flex-row px-4 py-2.5 w-full items-center justify-center rounded-lg ${answer.error===true?'bg-black':'bg-green-900'}`} onClick={()=>{setSegment(segment+1),setModalAnswer(false)}}>Continuer</button>
